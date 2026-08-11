@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed - Instagram Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .card { border: 1px solid #dbdbdb; border-radius: 8px; margin-bottom: 20px; background: #fff; overflow: hidden; }
+    .post-header { display: flex; align-items: center; padding: 12px; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; margin-right: 10px; background: #efefef; }
+    .username { font-weight: 600; font-size: 0.9rem; color: #262626; }
+    .media-container { width: 100%; background: #000; display: flex; justify-content: center; }
+    .media-container img, .media-container video { width: 100%; max-height: 500px; object-fit: contain; }
+    .post-footer { padding: 12px; }
+    .caption { font-size: 0.9rem; color: #262626; }
+    .description { font-size: 0.8rem; color: #8e8e8e; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div style="padding: 15px 15px 5px 15px;">
+      <h2 style="font-size: 1.3rem; font-weight: 700;">Feed</h2>
+    </div>
+
+    <!-- Feed Container -->
+    <div id="posts-container" style="padding: 10px 15px;"></div>
+    
+    <div style="padding: 0 15px 20px 15px; text-align: center;">
+      <button class="btn" id="load-more-btn" onclick="fetchFeed()" style="background: #efefef; color: #262626;">Load More</button>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="navbar">
+      <a href="feed.html" class="active">Feed</a>
+      <a href="upload.html">Upload</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/feed.js"></script>
+</body>
+</html>

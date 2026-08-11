@@ -1,0 +1,38 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload - Instagram Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="feed.html">Feed</a>
+      <a href="upload.html" class="active">Upload</a>
+      <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Upload Content -->
+    <div class="form-container" style="height: auto; padding-top: 40px;">
+      <h2 style="margin-bottom: 20px;">Create New Post</h2>
+      <div id="upload-alert" class="alert-msg"></div>
+      
+      <!-- Direct File Upload -->
+      <label style="align-self: flex-start; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem;">Select Media:</label>
+      <input type="file" id="post-file" accept="video/*, image/*" required style="background: white;">
+      
+      <textarea id="post-caption" rows="3" placeholder="Write a caption..." style="width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 4px; outline: none;"></textarea>
+      <textarea id="post-desc" rows="2" placeholder="Description (Optional)" style="width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 4px; outline: none;"></textarea>
+      
+      <button class="btn" onclick="uploadPost()">Share Post</button>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>

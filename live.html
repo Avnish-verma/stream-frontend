@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Prevent favicon 404 error -->
+<link rel="icon" href="data:,">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Live - InstaClone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .live-container { padding: 20px; text-align: center; }
+    .video-wrapper { position: relative; max-width: 600px; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; }
+    #local-video { width: 100%; display: block; background: #222; }
+    .live-badge { position: absolute; top: 15px; left: 15px; background: #ed4956; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; display: none; }
+    .controls { margin-top: 20px; }
+    .btn-primary { background: #0095f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    .btn-danger { background: #ed4956; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; display: none; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="live-container">
+      <h2>Broadcast Live</h2>
+      <p id="status-text" style="color: #8e8e8e; font-size: 0.9rem; margin-bottom: 15px;">Ready to go live?</p>
+      
+      <div class="video-wrapper">
+        <span id="live-indicator" class="live-badge">LIVE</span>
+        <video id="local-video" autoplay playsinline muted></video>
+      </div>
+<!-- live.html me video-wrapper ke niche yeh code add karein -->
+<div style="margin: 15px 0; background: #262626; padding: 10px; border-radius: 6px; display: inline-block;">
+  <span style="color: #8e8e8e; font-size: 0.85rem;">Active Room ID: </span>
+  <span id="display-room-id" style="color: #0095f6; font-weight: bold; font-size: 0.9rem;">Not Connected</span>
+</div>
+      <div class="controls">
+        <button id="start-btn" class="btn-primary" onclick="startBroadcast()">Start Live Video</button>
+        <button id="stop-btn" class="btn-danger" onclick="stopBroadcast()">End Live Video</button>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <a href="feed.html">Feed</a>
+      <a href="search.html">Search</a>
+      <a href="live.html" class="active">Live</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <!-- Socket.io & Mediasoup Client Libraries -->
+  <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+ <!-- 2. Modern ES Module Import for Mediasoup -->
+  <script type="module">
+    // Yeh directly NPM package ko import karke window par attach kar dega
+    import * as mediasoupClient from 'https://esm.sh/mediasoup-client@3';
+    window.mediasoupClient = mediasoupClient;
+  </script>
+  <script src="js/api.js"></script>
+  <script src="js/live.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Chat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .chat-container { display: flex; flex-direction: column; height: 80vh; background: #fff; border: 1px solid #dbdbdb; border-radius: 8px; margin: 20px; overflow: hidden; }
+    .chat-header { padding: 15px; background: #fafafa; border-bottom: 1px solid #dbdbdb; display: flex; justify-content: space-between; align-items: center; }
+    .messages-area { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #fff; }
+    
+    .msg-bubble { max-width: 70%; padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; word-wrap: break-word; }
+    .msg-received { background: #efefef; color: #262626; align-self: flex-start; }
+    .msg-sent { background: #0095f6; color: #fff; align-self: flex-end; }
+    
+    .chat-input-area { padding: 15px; border-top: 1px solid #dbdbdb; display: flex; gap: 10px; background: #fafafa; }
+    .chat-input-area input { flex: 1; padding: 10px; border: 1px solid #dbdbdb; border-radius: 20px; outline: none; }
+    .chat-input-area button { background: #0095f6; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    
+    <div class="chat-container">
+      <div class="chat-header">
+        <h3 id="chat-partner-name">Loading chat...</h3>
+      </div>
+
+      <div class="messages-area" id="messages-area">
+        <!-- Live messages will be injected here -->
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="msg-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="navbar">
+      <a href="feed.html">Feed</a>
+      <a href="search.html">Search</a>
+      <a href="upload.html">Upload</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <!-- Socket.io Client Library -->
+  <!-- Socket.io Client Library -->
+  <!-- Socket.io Client Library from Local Backend -->
+  <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

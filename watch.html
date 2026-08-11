@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch Live - InstaClone</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .watch-container { padding: 20px; text-align: center; }
+    .video-wrapper { position: relative; max-width: 600px; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; }
+    #remote-video { width: 100%; display: block; background: #222; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+   <div class="watch-container">
+  <h2>Live Stream</h2>
+  <p id="watch-status" style="color: #8e8e8e; font-size: 0.9rem; margin-bottom: 15px;">Connecting to stream...</p>
+  
+  <div class="video-wrapper">
+    <!-- Muted hata diya hai -->
+    <video id="remote-video" autoplay playsinline></video>
+  </div>
+
+  <!-- Browser policy ko bypass karne ke liye unmute button -->
+  <div style="margin-top: 15px;">
+    <button id="unmute-btn" onclick="enableAudio()" style="background: #0095f6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">Enable Audio / Unmute</button>
+  </div>
+</div>
+
+    <div class="navbar">
+      <a href="feed.html">Feed</a>
+      <a href="search.html">Search</a>
+      <a href="live.html">Live</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <!-- Socket.io and Mediasoup ES Module -->
+  <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+  <script type="module">
+    import * as mediasoupClient from 'https://esm.sh/mediasoup-client@3';
+    window.mediasoupClient = mediasoupClient;
+  </script>
+  <script src="js/watch.js" defer></script>
+</body>
+</html>

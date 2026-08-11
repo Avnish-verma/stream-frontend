@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Instagram Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .profile-card { background: #fff; border-bottom: 1px solid #dbdbdb; padding: 25px 20px; text-align: center; }
+    .profile-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid #0095f6; margin-bottom: 12px; background: #efefef; }
+    .profile-name { font-size: 1.2rem; font-weight: 700; color: #262626; }
+    .profile-handle { font-size: 0.85rem; color: #8e8e8e; margin-bottom: 8px; }
+    .profile-email { font-size: 0.8rem; color: #666; background: #f0f2f5; display: inline-block; padding: 3px 10px; border-radius: 12px; margin-bottom: 12px; }
+    .profile-bio { font-size: 0.9rem; color: #262626; margin-bottom: 15px; line-height: 1.4; }
+    .gender-badge { font-size: 0.7rem; background: #e7f3ff; color: #0095f6; padding: 3px 10px; border-radius: 10px; font-weight: 600; text-transform: uppercase; display: inline-block; margin-bottom: 12px; }
+    
+    .profile-stats { display: flex; justify-content: space-around; border-top: 1px solid #efefef; padding-top: 15px; margin-top: 15px; }
+    .stat-box { text-align: center; }
+    .stat-box span { display: block; font-weight: 700; font-size: 1rem; color: #262626; }
+    .stat-box label { font-size: 0.75rem; color: #8e8e8e; }
+
+    .edit-profile-btn { background: #efefef; color: #262626; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; margin-top: 10px; transition: background 0.2s; }
+    .edit-profile-btn:hover { background: #dbdbdb; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Profile Header & Details -->
+    <div id="profile-content">
+      <div class="profile-card">
+        <p style="color: #8e8e8e;">Loading profile...</p>
+      </div>
+    </div>
+
+    <!-- Actions Area -->
+    <div style="padding: 20px;">
+      <button class="btn" style="background-color: #ed4956;" onclick="logoutUser()">Log Out</button>
+    </div>
+
+    <!-- EDIT PROFILE MODAL (POPUP) -->
+    <div class="modal-overlay" id="editModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="toggleEditModal()">&times;</button>
+        <h3 style="margin-bottom: 15px; font-size: 1.1rem;">Edit Profile</h3>
+        
+        <div id="modal-alert" class="alert-msg"></div>
+
+        <!-- Update Picture -->
+        <label style="font-size: 0.8rem; font-weight: 600; color: #8e8e8e;">Change Profile Picture</label>
+        <input type="file" id="prof-file" accept="image/*" style="margin-bottom: 10px;">
+        <button class="btn" style="margin-bottom: 20px; padding: 8px;" onclick="updateProfilePic()">Upload Picture</button>
+
+        <!-- Update Bio & Gender -->
+        <label style="font-size: 0.8rem; font-weight: 600; color: #8e8e8e;">Bio</label>
+        <textarea id="prof-bio" rows="2" placeholder="Write something about yourself..."></textarea>
+        
+        <label style="font-size: 0.8rem; font-weight: 600; color: #8e8e8e;">Gender</label>
+        <select id="prof-gender">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <button class="btn" onclick="updateProfileDetails()">Save Details</button>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="navbar">
+      <a href="feed.html">Feed</a>
+      <a href="upload.html">Upload</a>
+      <a href="profile.html" class="active">Profile</a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

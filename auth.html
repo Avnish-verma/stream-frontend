@@ -1,0 +1,36 @@
+<!-- auth.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Instagram Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div id="login-section" class="form-container">
+      <h1>Instagram</h1>
+      <div id="login-alert" class="alert-msg" style="color: #ed4956;"></div>
+      <input type="text" id="login-userid" placeholder="User ID" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button class="btn" onclick="loginUser()">Log In</button>
+      <p style="margin-top:20px; font-size:0.9rem; cursor:pointer; color:#0095f6;" onclick="toggleAuth()">Don't have an account? Sign up</p>
+    </div>
+
+    <div id="register-section" class="form-container hidden">
+      <h1>Join Us</h1>
+      <div id="register-alert" class="alert-msg" style="color: #ed4956;"></div>
+      <input type="text" id="reg-fullname" placeholder="Full Name" required>
+      <input type="text" id="reg-userid" placeholder="User ID" required>
+      <input type="email" id="reg-email" placeholder="Email Address" required>
+      <input type="password" id="reg-password" placeholder="Password" required>
+      <button class="btn" onclick="registerUser()">Sign Up</button>
+      <p style="margin-top:20px; font-size:0.9rem; cursor:pointer; color:#0095f6;" onclick="toggleAuth()">Already have an account? Log in</p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
