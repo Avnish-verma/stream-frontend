@@ -132,7 +132,7 @@ async function startBroadcast() {
 }
 
 function connectToSFU() {
-    sfuSocket = io("http://localhost:8000");
+    sfuSocket = io("https://reburial-savage-unhinge.ngrok-free.dev");
 
     sfuSocket.on("connect", async () => {
         console.log("Connected to SFU Socket:", sfuSocket.id);
