@@ -14,7 +14,7 @@ async function startWatching() {
         return;
     }
 
-    socket = io("http://localhost:8000");
+    socket = io("https://reburial-savage-unhinge.ngrok-free.dev");
 
     socket.on("connect", async () => {
         console.log("TRACKER 1: Connected to SFU as viewer:", socket.id);
